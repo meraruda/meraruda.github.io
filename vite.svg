@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="dynamicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#FF8C42;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#FF4500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CC3500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFEB3B;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#FF6B35;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="dynamicGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.8" result="coloredBlur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feMerge> 
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="0.8" result="innerBlur"/>
+      <feFlood flood-color="#FFD700"/>
+      <feComposite in2="innerBlur" operator="multiply"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Abstract bat wings forming clear W shape -->
+  <path d="M4 8 L9 22 L12 16 L15 22 L16 18 L17 22 L20 16 L23 22 L28 8 L25 8 L21 20 L18 14 L16 20 L14 14 L11 20 L7 8 Z" 
+        fill="url(#dynamicGradient)" 
+        filter="url(#dynamicGlow)"/>
+  
+  <!-- Wing membrane details (bat-like curves) -->
+  <path d="M5 9 C7 12, 8 15, 9 18 M11 17 C12 19, 13 20, 14 21 M18 21 C19 20, 20 19, 21 17 M23 18 C24 15, 25 12, 27 9" 
+        fill="none"
+        stroke="url(#highlightGradient)" 
+        stroke-width="0.8"
+        stroke-linecap="round"
+        opacity="0.6"/>
+  
+  <!-- Bat head circle with same style as wing tips -->
+  <circle cx="16" cy="12" r="1" fill="#FF8C42" opacity="0.7"/>
+  
+  <!-- Pointed bat ears -->
+  <path d="M14.5 10.5 L15 8.5 L15.5 10.5" fill="url(#highlightGradient)"/>
+  <path d="M16.5 10.5 L17 8.5 L17.5 10.5" fill="url(#highlightGradient)"/>
+  
+  <!-- Wing tip accents to emphasize W points -->
+  <circle cx="9" cy="22" r="1" fill="#FF8C42" opacity="0.7"/>
+  <circle cx="15" cy="22" r="0.8" fill="#FFB366" opacity="0.6"/>
+  <circle cx="17" cy="22" r="0.8" fill="#FFB366" opacity="0.6"/>
+  <circle cx="23" cy="22" r="1" fill="#FF8C42" opacity="0.7"/>
+  
+  <!-- Flying motion lines -->
+  <path d="M2 14 L6 13 M26 13 L30 14" stroke="#FF8C42" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+</svg>
